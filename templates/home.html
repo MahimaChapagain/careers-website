@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Join Our Team</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <h1>Career Portal</h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/jobs">View All Jobs</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h2>Build Your Career With Us</h2>
+                <p>Join our talented team and make a difference in the world of technology.</p>
+            </section>
+
+            <section class="about">
+                <h3>Why Work Here?</h3>
+                <div class="benefits">
+                    <div class="benefit">
+                        <h4>🚀 Innovation</h4>
+                        <p>Work on cutting-edge projects that impact millions of users</p>
+                    </div>
+                    <div class="benefit">
+                        <h4>💡 Growth</h4>
+                        <p>Continuous learning opportunities and career development</p>
+                    </div>
+                    <div class="benefit">
+                        <h4>🤝 Collaboration</h4>
+                        <p>Work with passionate professionals in a supportive environment</p>
+                    </div>
+                    <div class="benefit">
+                        <h4>🌍 Flexibility</h4>
+                        <p>Remote and hybrid work options available</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="jobs-preview">
+                <h3>Open Positions ({{ jobs|length }})</h3>
+                <div class="job-list">
+                    {% for job in jobs %}
+                    <div class="job-card">
+                        <h4>{{ job.title }}</h4>
+                        <p class="location">📍 {{ job.location }}</p>
+                        <p class="salary">💰 {{ job.salary }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href="/jobs" class="btn">View All Jobs</a>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Career Portal. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

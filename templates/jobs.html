@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Openings - Careers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <h1>Career Portal</h1>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/jobs">View All Jobs</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="jobs-page">
+                <h2>Current Job Openings</h2>
+                <p class="subtitle">Find your next career opportunity</p>
+                
+                <div class="job-list">
+                    {% for job in jobs %}
+                    <div class="job-card detailed">
+                        <div class="job-header">
+                            <h3>{{ job.title }}</h3>
+                        </div>
+                        <div class="job-details">
+                            <p class="location">📍 <strong>Location:</strong> {{ job.location }}</p>
+                            <p class="salary">💰 <strong>Salary:</strong> {{ job.salary }}</p>
+                        </div>
+                        <div class="job-actions">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-secondary">Learn More</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Career Portal. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
